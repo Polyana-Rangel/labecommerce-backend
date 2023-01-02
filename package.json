@@ -1,0 +1,23 @@
+{
+  "name": "package-json-template",
+  "version": "1.0.0",
+  "description": "aula de introdução ao node",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "Brazil": "node index.js Brazil",
+    "Vazio": "node index.js ",
+    "busca" : "node buscaPorLetra.js b",
+    "addPais": "node addPais.js polyanalandia pl "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polyana-Rangel/node-package-json-template.git"
+  },
+  "author": "ammal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Polyana-Rangel/node-package-json-template/issues"
+  },
+  "homepage": "https://github.com/Polyana-Rangel/node-package-json-template#readme"
+}
