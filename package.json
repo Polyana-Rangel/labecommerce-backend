@@ -1,23 +1,25 @@
 {
-  "name": "package-json-template",
+  "name": "labecommerce-backend",
   "version": "1.0.0",
-  "description": "aula de introdução ao node",
+  "description": "exercicio tarde",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "Brazil": "node index.js Brazil",
-    "Vazio": "node index.js ",
-    "busca" : "node buscaPorLetra.js b",
-    "addPais": "node addPais.js polyanalandia pl "
+    "start": "tsc && node ./build/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Polyana-Rangel/node-package-json-template.git"
+    "url": "git+https://github.com/Polyana-Rangel/labecommerce-backend.git"
   },
-  "author": "ammal",
+  "keywords": [
+    "123"
+  ],
+  "author": "polyana",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Polyana-Rangel/node-package-json-template/issues"
+    "url": "https://github.com/Polyana-Rangel/labecommerce-backend/issues"
   },
-  "homepage": "https://github.com/Polyana-Rangel/node-package-json-template#readme"
+  "homepage": "https://github.com/Polyana-Rangel/labecommerce-backend#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
 }
