@@ -1,7 +1,7 @@
 import { TUser, TProduct,TPurchase, Category } from "./types";
 
 
-export const users: TUser[]=[
+export let users: TUser[]=[
     {id:"12345",
     email:"polyana@labenu.com",
     password: "1234567"},
@@ -12,7 +12,7 @@ export const users: TUser[]=[
     
 ]
 
-export const product : TProduct[]=[
+export let product : TProduct[]=[
     {
      id :"34567",
      name: "camisa",
@@ -114,4 +114,34 @@ export function getCategory(categoryName: string): Category {
     } else {
       return Category.ELECTRONICS;
     }
+}
+
+export function deleteUser(id: string):void{
+    users = users.filter(user=> user.id!== id )
+}
+export function deleteProducts(id: string):void{
+    product = product.filter(p => p.id!== id )
+}
+
+export function putUser(id:string, email:string, password: string):void{
+      users =  users.map(user=> { 
+        if (user.id === id) {
+            user.email=email;
+            user.password=password;
+            
+        }
+        return user
+    })
+}
+export function putProduct(id:string, name:string, price: number, category: Category):void{
+    product = product.map(p=>{
+        if(p.id ===id){
+            p.name = name
+            p.price = price
+            p.category = category
+
+        }
+        return p
+    })
+
 }

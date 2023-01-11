@@ -2,8 +2,8 @@ import express, { Request, Response } from 'express'
 import cors from 'cors'
 
 import {  TUser, TProduct,TPurchase } from './types';
-import {getCategory,
-      purchase, createUsers,
+import {getCategory, deleteProducts, deleteUser,
+      purchase, createUsers,putUser,putProduct,
       getAllProductById, getAllProducts, getAllUsers, createProduct,
       queryProductsByName, createPurchase, getAllPurchasesFromUserId
 } from "./database";
@@ -25,9 +25,16 @@ app.get('/users', (req: Request, res: Response) => {
       res.status(200).send(users) 
   
   })
-app.get('/purchase', (req: Request, res: Response) => {
-      const q = req.query.q as string
-      const purchase = getAllPurchasesFromUserId(q)
+app.get('/users/:id/purchases', (req: Request, res: Response) => {
+      const id = req.params["id"]
+      const purchase = getAllPurchasesFromUserId(id)
+      res.status(200).send(purchase) 
+  
+  })
+
+app.get('/products/:id', (req: Request, res: Response) => {
+      const id = req.params["id"]
+      const purchase = getAllProductById(id)
       res.status(200).send(purchase) 
   
   })
@@ -81,6 +88,40 @@ app.get('/product', (req: Request, res: Response) => {
       )
   })
 
+  app.delete("/users/:id", (req: Request, res: Response) => {
+      const id = req.params["id"]
+      deleteUser(id)
+
+      res.status(201).send("User apagado com sucesso")
+
+  })
+  app.delete("/product/:id", (req: Request, res: Response) => {
+      const id = req.params["id"]
+      deleteProducts(id)
+
+      res.status(201).send("User apagado com sucesso")
+
+  })
+
+  app.put("/product/:id", (req: Request, res: Response) => {
+      const id = req.params["id"]
+      const {  name, price, category } = req.body 
+
+      putProduct(id, name, price,getCategory(category))
+
+      res.status(201).send("Cadastro atualizado com sucesso")
+
+  })
+
+  app.put("/users/:id", (req: Request, res: Response) => {
+      const id = req.params["id"]
+      const { email, password } = req.body 
+      putUser(id, email, password)
+
+      res.status(201).send("Produto atualizado com sucesso"
+      )
+
+  })
 
 
 
