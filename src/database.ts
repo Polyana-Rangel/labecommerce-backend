@@ -16,13 +16,13 @@ export let product : TProduct[]=[
     {
      id :"34567",
      name: "camisa",
-     price: 3456,
+     price: 10,
      category: Category.ACCESSORIES ,
     },
     {
      id :"37567",
      name: "sapato",
-     price: 356,
+     price: 20,
      category: Category.CLOTHES_AND_SHOES,
     
     }
@@ -55,8 +55,8 @@ export function getAllUsers (): TUser[]{
 }
 
 export function createProduct(id: string, name: string, price: number, category: Category): string{
-    console.log(category)
-    product.push({id, name, price, category})
+    // console.log(category)
+    // product.push({id, name, price, category})
     return ("produto criado")
 
 }
@@ -94,8 +94,8 @@ export const createPurchase = (userId:string, productId: string, quantity: numbe
     }
     purchase.push(newPurchase)
 
-    console.log("compra realizada com sucesso")
-    console.table(purchase)
+    // console.log("compra realizada com sucesso")
+    // console.table(purchase)
 } 
 
 export const getAllPurchasesFromUserId = (userIdToSearch:string): TPurchase[]=>{
